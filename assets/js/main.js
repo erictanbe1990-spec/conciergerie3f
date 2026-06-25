@@ -1,7 +1,7 @@
 document.documentElement.classList.add('js');
 // ====== EDIT HERE ======
 var WHATSAPP = 'https://wa.me/33652296898?text=' + encodeURIComponent('Bonjour, je souhaite une estimation pour mon bien.');
-var WEB3FORMS_KEY = 'VOTRE_CLE_WEB3FORMS'; // <-- collez votre clé gratuite (web3forms.com) pour recevoir les demandes par email
+var WEB3FORMS_KEY = '9505da6f-460b-4f72-8c2d-1ca6a26ba134'; // clé Web3Forms — demandes envoyées par email
 // =======================
 document.addEventListener('DOMContentLoaded', function () {
   var burger=document.querySelector('.burger'), links=document.querySelector('.nav-links');
