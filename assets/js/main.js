@@ -1,4 +1,6 @@
 document.documentElement.classList.add('js');
+// ===== Google Analytics (GA4) =====
+(function(){var s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id=G-5JP62SBCLN';document.head.appendChild(s);window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}window.gtag=gtag;gtag('js',new Date());gtag('config','G-5JP62SBCLN');})();
 // ====== EDIT HERE ======
 var WHATSAPP = 'https://wa.me/33652296898?text=' + encodeURIComponent('Bonjour, je souhaite une estimation pour mon bien.');
 var WEB3FORMS_KEY = '9505da6f-460b-4f72-8c2d-1ca6a26ba134'; // clé Web3Forms — demandes envoyées par email
