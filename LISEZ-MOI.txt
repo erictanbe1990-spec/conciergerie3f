@@ -1,0 +1,11 @@
+SITE CONCIERGERIE 3F - version hors-ligne (palette vive + animations)
+====================================================================
+APERCU : double-cliquez sur "index.html" (s'ouvre dans le navigateur, sans serveur).
+PAGES : accueil FR/EN/DE, Village-Neuf, Hegenheim, Hesingue, mentions legales,
+politique de confidentialite. Images, couleurs et polices d'origine.
+ANIMATIONS : entree du heros, revelations au defilement, compteur tarif (monte a 20%),
+survols. Respecte "prefers-reduced-motion".
+A PERSONNALISER AVANT MISE EN LIGNE : bio + photo (Qui suis-je), infos legales
+(SIRET, statut, hebergeur), brancher le formulaire, avis clients.
+DEPLOIEMENT : site 100% statique -> Netlify / Cloudflare Pages / GitHub Pages,
+une fois le domaine conciergerie3f.com a votre nom.

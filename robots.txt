@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://conciergerie3f.com/sitemap.xml
