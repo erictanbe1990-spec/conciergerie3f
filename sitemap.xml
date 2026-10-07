@@ -27,6 +27,16 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://conciergerie3f.com/de/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://conciergerie3f.com/"/>
   </url>
+  <url><loc>https://conciergerie3f.com/saint-louis.html</loc>
+    <lastmod>2026-10-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url><loc>https://conciergerie3f.com/huningue.html</loc>
+    <lastmod>2026-10-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
   <url><loc>https://conciergerie3f.com/village-neuf.html</loc>
     <lastmod>2026-10-07</lastmod>
     <changefreq>monthly</changefreq>
@@ -46,16 +56,6 @@
     <lastmod>2026-10-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-  </url>
-  <url><loc>https://conciergerie3f.com/mentions-legales.html</loc>
-    <lastmod>2026-06-25</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
-  </url>
-  <url><loc>https://conciergerie3f.com/politique-confidentialite.html</loc>
-    <lastmod>2026-06-25</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
   </url>
   <url><loc>https://conciergerie3f.com/weil-am-rhein.html</loc>
     <lastmod>2026-10-07</lastmod>
