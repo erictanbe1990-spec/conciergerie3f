@@ -180,4 +180,6 @@ img{max-width:100%;height:auto;display:block}
   .mobile-cta a{flex:1;justify-content:center;padding:12px 10px;font-size:.92rem}
   body.has-mcta{padding-bottom:76px}
   body.has-mcta .social-float{bottom:88px}
+  .nav{padding:10px 16px;gap:12px} .nav-right{gap:10px} .brand img{height:44px}
+  .nav-right .phone-btn{display:none}
 }
