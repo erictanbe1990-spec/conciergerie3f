@@ -26,27 +26,55 @@ document.addEventListener('DOMContentLoaded', function () {
   if(c){var target=parseInt(c.getAttribute('data-count'),10)||20,done=false;
     function run(){if(done)return;done=true;var t0=null;function step(ts){if(!t0)t0=ts;var p=Math.min((ts-t0)/1400,1);var e=1-Math.pow(1-p,3);c.textContent=Math.round(target*e);if(p<1)requestAnimationFrame(step);}requestAnimationFrame(step);}
     var io2=new IntersectionObserver(function(e){e.forEach(function(x){if(x.isIntersecting)run();});},{threshold:.4});io2.observe(c);}
-  // ===== lead form (collecte email + téléphone, pas d'estimation auto) =====
+  var L=document.documentElement.lang||'fr';
+  var T=function(fr,en,de){return L==='en'?en:L==='de'?de:fr;};
+  function track(name,params){try{if(window.gtag)gtag('event',name,params||{});}catch(_){}}
+  // ===== suivi des contacts (GA4) : appels, WhatsApp, e-mail =====
+  document.addEventListener('click',function(e){
+    var a=e.target.closest&&e.target.closest('a[href]'); if(!a)return;
+    var h=a.getAttribute('href')||'';
+    if(h.indexOf('tel:')===0)track('click_phone',{link_location:a.className||'link'});
+    else if(h.indexOf('wa.me')!==-1)track('click_whatsapp',{link_location:a.className||'link'});
+    else if(h.indexOf('mailto:')===0)track('click_email',{link_location:a.className||'link'});
+    else if(h.indexOf('#estimation')!==-1)track('click_estimation_cta',{link_location:a.className||'link'});
+  });
+  // ===== lead form (envoi par e-mail via Web3Forms) =====
   var form=document.getElementById('leadForm');
   if(form){
     var ok=document.getElementById('lead-ok');
+    var val=function(id){var el=document.getElementById(id);return el?el.value.trim():'';};
+    var started=false;
+    form.addEventListener('focusin',function(){if(!started){started=true;track('form_start',{form_id:'leadForm'});}});
     form.addEventListener('submit',function(e){
       e.preventDefault();
       if(!form.checkValidity()){form.reportValidity();return;}
-      var email=document.getElementById('lead-email').value;
-      var phone=document.getElementById('lead-phone').value;
-      var bien=(document.getElementById('lead-bien')||{}).value||'';
-      var btn=form.querySelector('button[type=submit]');
-      var L=document.documentElement.lang;
-      var MSG=L==='en'?'✓ Thank you!<br><span class="big">We\'ll get back to you within 24h</span>':L==='de'?'✓ Danke!<br><span class="big">Wir melden uns innerhalb von 24 Std.</span>':'✓ Merci !<br><span class="big">Nous vous recontactons sous 24h</span>';
-      var SENT=L==='en'?'Request sent':L==='de'?'Anfrage gesendet':'Demande envoyée';
-      function success(){ if(ok){ok.hidden=false;ok.innerHTML=MSG;} btn.textContent=SENT;btn.disabled=true; }
-      if(WEB3FORMS_KEY.indexOf('VOTRE_CLE')===-1){
-        fetch('https://api.web3forms.com/submit',{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},
-          body:JSON.stringify({access_key:WEB3FORMS_KEY,subject:'Nouvelle demande d’estimation – Conciergerie 3F',from_name:'Site Conciergerie 3F',email:email,telephone:phone,bien:bien})})
-          .then(function(r){return r.json();}).then(success).catch(function(){success();});
-      } else { success(); }
+      var bot=document.getElementById('lead-botcheck'); if(bot&&bot.checked)return;
+      var btn=form.querySelector('button[type=submit]'), label=btn.textContent;
+      var MSG=T('✓ Merci !<br><span class="big">Nous vous recontactons sous 24h</span>','✓ Thank you!<br><span class="big">We\'ll get back to you within 24h</span>','✓ Danke!<br><span class="big">Wir melden uns innerhalb von 24 Std.</span>');
+      var ERR=T('Oups, l\'envoi n\'a pas fonctionné. Appelez-nous au <a href="tel:+33652296898">06 52 29 68 98</a> ou écrivez-nous sur <a href="'+WHATSAPP+'" target="_blank" rel="noopener">WhatsApp</a>.',
+                'Sorry, sending failed. Call us on <a href="tel:+33652296898">+33 6 52 29 68 98</a> or message us on <a href="'+WHATSAPP+'" target="_blank" rel="noopener">WhatsApp</a>.',
+                'Das Senden ist fehlgeschlagen. Rufen Sie uns an: <a href="tel:+33652296898">+33 6 52 29 68 98</a> oder schreiben Sie uns per <a href="'+WHATSAPP+'" target="_blank" rel="noopener">WhatsApp</a>.');
+      var SENT=T('Demande envoyée','Request sent','Anfrage gesendet');
+      var ville=val('lead-ville');
+      var data={access_key:WEB3FORMS_KEY,subject:'Nouvelle demande d’estimation'+(ville?' – '+ville:'')+' – Conciergerie 3F',from_name:'Site Conciergerie 3F',
+        prenom:val('lead-name'),telephone:val('lead-phone'),email:val('lead-email'),commune:ville,bien:val('lead-bien'),
+        page:location.pathname,langue:L,source:document.referrer||'direct',botcheck:false};
+      if(!data.email)delete data.email;
+      function success(){ if(ok){ok.classList.remove('err');ok.hidden=false;ok.innerHTML=MSG;} btn.textContent=SENT;btn.disabled=true;
+        track('generate_lead',{form_id:'leadForm',commune:ville||'non précisée'}); }
+      function fail(){ if(ok){ok.classList.add('err');ok.hidden=false;ok.innerHTML=ERR;} btn.textContent=label;btn.disabled=false;
+        track('lead_error',{form_id:'leadForm'}); }
+      btn.disabled=true; btn.textContent=T('Envoi…','Sending…','Wird gesendet…');
+      fetch('https://api.web3forms.com/submit',{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},body:JSON.stringify(data)})
+        .then(function(r){return r.json();}).then(function(j){ if(j&&j.success)success(); else fail(); }).catch(fail);
     });
+  }
+  // ===== barre d'action fixe sur mobile =====
+  if(!document.querySelector('.mobile-cta')){
+    var est=document.getElementById('estimation')?'#estimation':'index.html#estimation';
+    var bar=document.createElement('div'); bar.className='mobile-cta';
+    bar.innerHTML='<a class="btn btn-outline" href="tel:+33652296898">'+T('📞 Appeler','📞 Call','📞 Anrufen')+'</a><a class="btn btn-gold" href="'+est+'">'+T('Estimation gratuite','Free estimate','Gratis-Einschätzung')+'</a>';
+    document.body.appendChild(bar); document.body.classList.add('has-mcta');
   }
   // ===== floating WhatsApp button =====
   var stack=document.createElement('div'); stack.className='social-float';

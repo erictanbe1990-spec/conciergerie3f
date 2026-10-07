@@ -168,3 +168,16 @@ img{max-width:100%;height:auto;display:block}
 .tavatar{width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,var(--gold),var(--terracotta));color:#fff;font-weight:800;display:flex;align-items:center;justify-content:center;font-size:1.1rem}
 .tname{font-weight:700;color:var(--brown)} .trole{font-size:.85rem;color:var(--muted)}
 @media(max-width:900px){.testimonials{grid-template-columns:1fr}}
+/* lead capture */
+.hp{position:absolute!important;left:-9999px!important;width:1px;height:1px;opacity:0}
+.hero-trust{margin:18px 0 0;font-size:.92rem;font-weight:600;color:var(--muted)}
+.hero-trust .hstars{color:var(--gold-2);font-size:.95rem;letter-spacing:2px;margin-right:6px}
+.form-trust{text-align:center;font-size:.85rem;font-weight:600;color:var(--brown);margin:12px 0 0}
+.calc-out.err{background:#FDECE8;color:#8a2f1f}
+.mobile-cta{display:none}
+@media(max-width:760px){
+  .mobile-cta{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:70;background:#fff;box-shadow:0 -8px 24px rgba(60,45,37,.14);padding:10px 12px calc(10px + env(safe-area-inset-bottom));gap:10px}
+  .mobile-cta a{flex:1;justify-content:center;padding:12px 10px;font-size:.92rem}
+  body.has-mcta{padding-bottom:76px}
+  body.has-mcta .social-float{bottom:88px}
+}
