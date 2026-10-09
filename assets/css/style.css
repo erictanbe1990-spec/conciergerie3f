@@ -14,7 +14,7 @@ h1,h2,h3,h4{font-family:var(--sans);color:var(--brown);line-height:1.2;font-weig
 h1{font-size:clamp(2rem,4.5vw,3.3rem);font-weight:800;letter-spacing:-.5px}
 h2{font-size:clamp(1.6rem,3vw,2.4rem)} h3{font-size:1.25rem}
 p{margin:0 0 1rem} a{color:var(--terracotta);text-decoration:none}
-img{max-width:100%;height:auto;display:block}
+img{max-width:100%;height:auto;display:block}picture{display:contents}
 .serif-it{font-family:var(--serif);font-style:italic;font-weight:600;color:var(--terracotta)}
 .container{max-width:var(--maxw);margin:0 auto;padding:0 24px}
 .section{padding:84px 0}
