@@ -87,7 +87,7 @@
 <section class="hero"><div class="container hero-grid">
 <div><span class="eyebrow">📍 Sierentz – Porte du Sundgau</span><h1>Conciergerie Airbnb à Sierentz : louez votre bien entre Sundgau et <span class="serif-it">Bâle</span></h1><p class="lead">Bourg commerçant au pied des collines du Sundgau, Sierentz est relié à Bâle et à Mulhouse par le train et l&#x27;autoroute. Conciergerie 3F, basée à Saint-Louis, y gère les logements Airbnb des propriétaires de A à Z.</p>
 <p class="accroche">Vous encaissez. Nous gérons tout.</p>
-<div class="hero-cta"><a class="btn btn-gold" href="/#estimation">Estimation gratuite &rarr;</a><a class="btn btn-outline" href="/#services">Nos services &darr;</a></div></div>
+<div class="hero-cta"><a class="btn btn-gold" href="#estimation">Estimation gratuite &rarr;</a><a class="btn btn-outline" href="/#services">Nos services &darr;</a></div></div>
 <div class="hero-visual"><picture><source srcset="assets/img/interior-2.webp" type="image/webp"><img fetchpriority="high" width="1200" height="801" src="assets/img/interior-2.jpg" alt="Logement géré à Sierentz par Conciergerie 3F"></picture></div></div></section>
 <section class="section"><div class="container"><span class="eyebrow">Pourquoi Sierentz</span><h2>Sierentz, un point de chute pratique entre deux agglomérations</h2><p class="lead" style="max-width:880px">Avec sa gare TER sur la ligne Mulhouse – Bâle, sa sortie sur l&#x27;A35 et ses commerces, Sierentz est une base idéale pour des séjours de travail comme de loisirs. Bâle, l&#x27;EuroAirport et Mulhouse sont accessibles en une vingtaine de minutes. La demande vient de voyageurs en mission dans les entreprises de la région bâloise et mulhousienne, de frontaliers qui s&#x27;installent, de visiteurs des salons de Bâle et de touristes qui explorent l&#x27;Alsace du Sud : collines du Sundgau, bords du Rhin et véloroute du Rhin (EuroVelo 15) à proximité.</p>
 <h2 style="margin-top:40px">Une gestion qui fait la différence hors des grandes villes</h2><p class="lead" style="max-width:880px">Dans un bourg comme Sierentz, une annonce soignée et des prix bien calibrés font toute la différence face aux hôtels de Bâle et de Mulhouse. Nous valorisons le calme, le stationnement et la proximité de la gare, ajustons les tarifs aux salons de Bâle et aux vacances des trois pays, et notre équipe basée à Saint-Louis assure les arrivées, le ménage et la maintenance.</p></div></section>
@@ -106,9 +106,38 @@
 <div class="faq-item"><button class="faq-q">Intervenez-vous rapidement à Sierentz ?</button><div class="faq-a"><p>Oui. Notre équipe est basée à Saint-Louis, à environ un quart d&#x27;heure, et gère sur place les arrivées, le ménage et les petits imprévus.</p></div></div>
 <div class="faq-item"><button class="faq-q">Combien puis-je espérer gagner ?</button><div class="faq-a"><p>Cela dépend de la taille, de l&#x27;emplacement et de l&#x27;équipement de votre bien. Demandez une estimation gratuite : nous vous répondons sous 24h avec une projection personnalisée.</p></div></div></div></div></section>
 <section class="section alt"><div class="container center"><span class="eyebrow">Nos autres secteurs</span><h2>Conciergerie Airbnb dans les Trois Frontières</h2><p class="lead">Nous gérons aussi des logements dans les communes voisines, côté français comme côté allemand.</p><div class="zones"><a class="zone-chip" href="saint-louis.html">Saint-Louis</a><a class="zone-chip" href="huningue.html">Huningue</a><a class="zone-chip" href="village-neuf.html">Village-Neuf</a><a class="zone-chip" href="hegenheim.html">Hégenheim</a><a class="zone-chip" href="hesingue.html">Hésingue</a><a class="zone-chip" href="weil-am-rhein.html">Weil am Rhein</a><a class="zone-chip" href="bartenheim.html">Bartenheim</a></div></div></section>
-<section class="section brown"><div class="container center"><h2>Estimez gratuitement le potentiel de votre bien à Sierentz</h2>
-<p style="color:#d8c8bd;max-width:620px;margin:0 auto 24px">Devis gratuit, réponse sous 24h.</p>
-<a class="btn btn-gold" href="/#estimation">Estimer mon bien gratuitement &rarr;</a></div></section>
+<section class="section brown" id="estimation"><div class="container est-grid">
+  <div>
+    <span class="eyebrow">Estimation gratuite</span>
+    <h2>Estimez gratuitement le potentiel de votre bien à Sierentz</h2>
+    <p class="lead">Choisissez votre type de logement pour voir ce qu'il peut rapporter, puis laissez-nous vos coordonnées : estimation personnalisée sous 24h.</p>
+    <div class="sim" id="simulator">
+      <p class="sim-q">Votre logement :</p>
+      <div class="sim-choices" role="radiogroup" aria-label="Type de logement">
+        <label><input type="radio" name="sim-type" value="Studio" data-price="50"><span>Studio</span></label>
+        <label><input type="radio" name="sim-type" value="T2" data-price="65" checked><span>T2</span></label>
+        <label><input type="radio" name="sim-type" value="T3" data-price="75"><span>T3</span></label>
+      </div>
+      <div class="sim-out" aria-live="polite"><span class="sim-label">Loyers estimés</span><span class="sim-month"><b id="sim-month">≈ 1 755 €</b> / mois</span><span class="sim-year" id="sim-year">soit ≈ 21 060 € par an</span></div>
+      <p class="sim-note" id="sim-note">Base : 65 € la nuit et 90&nbsp;% d'occupation, nos résultats moyens. Avant commission (18&nbsp;% HT). Estimation indicative : votre estimation précise dépend de l'adresse, de la surface et de l'équipement.</p>
+      <a class="btn btn-outline sim-cta" href="#leadForm">Recevoir mon estimation précise &rarr;</a>
+    </div>
+  </div>
+  <form id="leadForm" class="card" novalidate>
+    <h3 style="margin-bottom:6px">Demandez votre estimation gratuite</h3>
+    <p style="color:var(--muted);font-size:.95rem;margin-bottom:16px">Laissez-nous vos coordonnées : nous vous recontactons sous 24h avec une estimation personnalisée.</p>
+    <div class="form-row"><label for="lead-name">Votre prénom</label><input id="lead-name" type="text" autocomplete="given-name" placeholder="Ex. Julie"></div>
+    <div class="form-row"><label for="lead-phone">Votre téléphone *</label><input id="lead-phone" type="tel" autocomplete="tel" required placeholder="06 ..."></div>
+    <div class="form-row"><label for="lead-email">Votre e-mail (facultatif)</label><input id="lead-email" type="email" autocomplete="email" placeholder="vous@email.com"></div>
+    <div class="form-row"><label for="lead-ville">Commune du bien</label><select id="lead-ville"><option value="">Choisir…</option><option>Saint-Louis</option><option>Huningue</option><option>Village-Neuf</option><option>Hégenheim</option><option>Hésingue</option><option>Weil am Rhein</option><option>Bartenheim</option><option selected>Sierentz</option><option>Autre commune</option></select></div>
+    <div class="form-row"><label for="lead-bien">Votre bien (facultatif)</label><input id="lead-bien" type="text" placeholder="Ex. T3, 2 chambres, déjà sur Airbnb"></div>
+    <input type="checkbox" name="botcheck" id="lead-botcheck" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+    <button class="btn btn-gold" type="submit" style="width:100%;justify-content:center">Recevoir mon estimation gratuite →</button>
+    <div class="calc-out" id="lead-ok" hidden></div>
+    <p class="form-trust">✓ Gratuit &nbsp;·&nbsp; ✓ Réponse sous 24h &nbsp;·&nbsp; ★ 4,9/5 sur Google</p>
+    <p class="calc-note">En envoyant, vous acceptez d'être recontacté ; voir notre <a href="politique-confidentialite.html">politique de confidentialité</a>.</p>
+  </form>
+</div></section>
 <footer class="footer"><div class="container"><div class="footer-grid">
 <div><picture><source srcset="assets/img/logo.webp" type="image/webp"><img width="720" height="383" src="assets/img/logo.png" alt="Conciergerie 3F" style="height:54px;width:auto;filter:brightness(0) invert(1);opacity:.9"></picture><p style="margin-top:14px;max-width:340px">Conciergerie Airbnb clé en main à Saint-Louis, Huningue et dans toute la zone des Trois Frontières.</p></div>
 <div><h4>Navigation</h4><ul><li><a href="/#services">Services</a></li><li><a href="/#offre">Offre</a></li><li><a href="/#faq">F.A.Q</a></li><li><a href="/#apropos">Qui suis-je ?</a></li></ul></div>

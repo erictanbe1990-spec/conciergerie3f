@@ -69,6 +69,29 @@ document.addEventListener('DOMContentLoaded', function () {
         .then(function(r){return r.json();}).then(function(j){ if(j&&j.success)success(); else fail(); }).catch(fail);
     });
   }
+  // ===== simulateur de revenus (prix moyens par nuit fournis par Eric, 90 % d'occupation) =====
+  var sim=document.getElementById('simulator');
+  if(sim){
+    var fmt=function(n){return Math.round(n).toLocaleString('fr-FR').replace(/\u202f|\u00a0/g,' ');};
+    var auto='';
+    var update=function(user){
+      var r=sim.querySelector('input[name=sim-type]:checked'); if(!r)return;
+      var price=+r.getAttribute('data-price'), month=price*30*0.9;
+      document.getElementById('sim-month').textContent='≈ '+fmt(month)+' €';
+      document.getElementById('sim-year').textContent='soit ≈ '+fmt(month*12)+' € par an';
+      document.getElementById('sim-note').textContent='Base : '+price+' € la nuit et 90\u00a0% d\'occupation, nos résultats moyens. Avant commission (18\u00a0% HT). Estimation indicative : votre estimation précise dépend de l\'adresse, de la surface et de l\'équipement.';
+      var bien=document.getElementById('lead-bien');
+      if(user&&bien&&(bien.value===''||bien.value===auto)){bien.value=auto=r.value;}
+      if(user)track('simulator_use',{type_bien:r.value});
+    };
+    [].forEach.call(sim.querySelectorAll('input[name=sim-type]'),function(r){r.addEventListener('change',function(){update(true);});});
+    update(false);
+    var cta=sim.querySelector('.sim-cta');
+    if(cta)cta.addEventListener('click',function(e){var ph=document.getElementById('lead-phone');if(!ph)return;e.preventDefault();
+      var bien=document.getElementById('lead-bien'),r=sim.querySelector('input[name=sim-type]:checked');
+      if(bien&&r&&(bien.value===''||bien.value===auto)){bien.value=auto=r.value;}
+      document.getElementById('leadForm').scrollIntoView({behavior:'smooth',block:'start'});setTimeout(function(){ph.focus({preventScroll:true});},400);});
+  }
   // ===== barre d'action fixe sur mobile =====
   if(!document.querySelector('.mobile-cta')){
     var lp=(location.pathname.match(/^\/(en|de)\//)||[])[1];

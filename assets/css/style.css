@@ -183,3 +183,20 @@ img{max-width:100%;height:auto;display:block}picture{display:contents}
   .nav{padding:10px 16px;gap:12px} .nav-right{gap:10px} .brand img{height:44px}
   .nav-right .phone-btn{display:none}
 }
+/* ===== simulateur de revenus (bloc estimation) ===== */
+.sim{margin-top:22px;background:#fff;border:1px solid var(--beige);border-radius:var(--radius);padding:20px;display:flex;flex-direction:column;gap:14px}
+.sim-q{font-weight:700;color:var(--brown);margin:0}
+.sim-choices{display:flex;gap:8px;flex-wrap:wrap}
+.sim-choices label{flex:1 1 0;min-width:72px;cursor:pointer}
+.sim-choices input{position:absolute;opacity:0;pointer-events:none}
+.sim-choices span{display:block;text-align:center;padding:11px 8px;border:1.5px solid var(--beige);border-radius:10px;font-weight:700;color:var(--brown);transition:border-color .2s,background .2s}
+.sim-choices input:checked+span{border-color:var(--gold);background:var(--gold-light)}
+.sim-choices input:focus-visible+span{outline:2px solid var(--gold-2);outline-offset:2px}
+.sim-out{display:flex;flex-direction:column;gap:2px;padding:14px 16px;border-radius:12px;background:linear-gradient(135deg,var(--gold-light),#FFF1CE);color:var(--brown)}
+.sim-label{font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#7a5410}
+.sim-month{font-size:1.05rem}
+.sim-month b{font-size:1.7rem;color:var(--brown)}
+.sim-year{font-size:.9rem;font-weight:600}
+.sim-note{font-size:.78rem;color:var(--muted);margin:0}
+.sim-cta{align-self:flex-start}
+#leadForm{scroll-margin-top:90px}
