@@ -71,7 +71,8 @@ document.addEventListener('DOMContentLoaded', function () {
   }
   // ===== barre d'action fixe sur mobile =====
   if(!document.querySelector('.mobile-cta')){
-    var est=document.getElementById('estimation')?'#estimation':'index.html#estimation';
+    var lp=(location.pathname.match(/^\/(en|de)\//)||[])[1];
+    var est=document.getElementById('estimation')?'#estimation':(lp?'/'+lp+'/':'/')+'#estimation';
     var bar=document.createElement('div'); bar.className='mobile-cta';
     bar.innerHTML='<a class="btn btn-outline" href="tel:+33652296898">'+T('📞 Appeler','📞 Call','📞 Anrufen')+'</a><a class="btn btn-gold" href="'+est+'">'+T('Estimation gratuite','Free estimate','Gratis-Einschätzung')+'</a>';
     document.body.appendChild(bar); document.body.classList.add('has-mcta');
