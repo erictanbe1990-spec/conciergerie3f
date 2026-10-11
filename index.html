@@ -325,7 +325,18 @@
   <div>
     <span class="eyebrow">Estimation gratuite</span>
     <h2>Combien votre bien peut-il rapporter ?</h2>
-    <p class="lead">Un appartement de 2 chambres sur Saint-Louis et Huningue peut rapporter jusqu’à <strong>2 250 € par mois</strong>. Laissez-nous vos coordonnées et recevez une estimation personnalisée sous 24h.</p>
+    <p class="lead">Un appartement de 2 chambres sur Saint-Louis et Huningue peut rapporter environ <strong>2 025 € par mois</strong>. Laissez-nous vos coordonnées et recevez une estimation personnalisée sous 24h.</p>
+    <div class="sim" id="simulator">
+      <p class="sim-q">Votre logement :</p>
+      <div class="sim-choices" role="radiogroup" aria-label="Type de logement">
+        <label><input type="radio" name="sim-type" value="Studio" data-price="50"><span>Studio</span></label>
+        <label><input type="radio" name="sim-type" value="T2" data-price="65" checked><span>T2</span></label>
+        <label><input type="radio" name="sim-type" value="T3" data-price="75"><span>T3</span></label>
+      </div>
+      <div class="sim-out" aria-live="polite"><span class="sim-label">Loyers estimés</span><span class="sim-month"><b id="sim-month">≈ 1 755 €</b> / mois</span><span class="sim-year" id="sim-year">soit ≈ 21 060 € par an</span></div>
+      <p class="sim-note" id="sim-note">Base : 65 € la nuit et 90&nbsp;% d'occupation, nos résultats moyens. Avant commission (18&nbsp;% HT). Estimation indicative : votre estimation précise dépend de l'adresse, de la surface et de l'équipement.</p>
+      <a class="btn btn-outline sim-cta" href="#leadForm">Recevoir mon estimation précise &rarr;</a>
+    </div>
   </div>
   <form id="leadForm" class="card" novalidate>
     <h3 style="margin-bottom:6px">Demandez votre estimation gratuite</h3>
@@ -333,7 +344,7 @@
     <div class="form-row"><label for="lead-name">Votre prénom</label><input id="lead-name" type="text" autocomplete="given-name" placeholder="Ex. Julie"></div>
     <div class="form-row"><label for="lead-phone">Votre téléphone *</label><input id="lead-phone" type="tel" autocomplete="tel" required placeholder="06 ..."></div>
     <div class="form-row"><label for="lead-email">Votre e-mail (facultatif)</label><input id="lead-email" type="email" autocomplete="email" placeholder="vous@email.com"></div>
-    <div class="form-row"><label for="lead-ville">Commune du bien</label><select id="lead-ville"><option value="">Choisir…</option><option>Saint-Louis</option><option>Huningue</option><option>Village-Neuf</option><option>Hégenheim</option><option>Hésingue</option><option>Weil am Rhein</option><option>Autre commune</option></select></div>
+    <div class="form-row"><label for="lead-ville">Commune du bien</label><select id="lead-ville"><option value="">Choisir…</option><option>Saint-Louis</option><option>Huningue</option><option>Village-Neuf</option><option>Hégenheim</option><option>Hésingue</option><option>Weil am Rhein</option><option>Bartenheim</option><option>Sierentz</option><option>Autre commune</option></select></div>
     <div class="form-row"><label for="lead-bien">Votre bien (facultatif)</label><input id="lead-bien" type="text" placeholder="Ex. T3, 2 chambres, déjà sur Airbnb"></div>
     <input type="checkbox" name="botcheck" id="lead-botcheck" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
     <button class="btn btn-gold" type="submit" style="width:100%;justify-content:center">Recevoir mon estimation gratuite →</button>
