@@ -120,11 +120,14 @@ img{max-width:100%;height:auto;display:block}picture{display:contents}
   .hero .lead{animation:fadeUp .9s both .2s}
   .hero .accroche{animation:fadeUp .9s both .32s}
   .hero .hero-cta{animation:fadeUp .9s both .44s}
-  .hero-visual{animation:pop 1s cubic-bezier(.2,.8,.2,1) both .25s}
   .hero-badge.b1{animation:pop .7s both .8s, floatY 4s ease-in-out 1.4s infinite}
   .hero-badge.b2{animation:pop .7s both 1s, floatY 4.6s ease-in-out 1.8s infinite}
   .js .reveal{opacity:0}
   .js .reveal.in{animation:fadeUp .85s cubic-bezier(.16,.8,.24,1) both}
+}
+/* image du hero : animée seulement sur ordinateur, pour qu'elle s'affiche tout de suite sur mobile */
+@media (prefers-reduced-motion:no-preference) and (min-width:981px){
+  .hero-visual{animation:pop 1s cubic-bezier(.2,.8,.2,1) both .25s}
 }
 @media(max-width:980px){
   .hero-grid,.est-grid,.offer-grid,.about-grid,.contact-grid{grid-template-columns:1fr}
