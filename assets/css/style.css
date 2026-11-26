@@ -105,7 +105,7 @@ img{max-width:100%;height:auto;display:block}picture{display:contents}
 .contact-info .k{font-weight:700;color:var(--brown)}
 .footer{background:linear-gradient(160deg,#4a382d,#33271f);color:#cdbcae;padding:48px 0 28px;font-size:.92rem}
 .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:30px;margin-bottom:28px}
-.footer a{color:#ecdccd} .footer h4{color:#fff;font-size:1rem;margin-bottom:14px}
+.footer a{color:#ecdccd} .footer h4,.footer .footer-title{color:#fff;font-size:1rem;font-weight:700;line-height:1.2;margin:0 0 14px}
 .footer ul{list-style:none;padding:0;margin:0} .footer li{margin-bottom:8px}
 .footer-bottom{border-top:1px solid rgba(255,255,255,.12);padding-top:18px;text-align:center;font-size:.82rem;color:#b09c8d}
 /* ===== animations (fortes) ===== */
